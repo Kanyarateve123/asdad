@@ -1,0 +1,23 @@
+.title{
+  color: white;  
+  text-align: center; 
+  background-color: blue;  
+  font-weight: 900; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.container{ 
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
+align-items: center;
+}
+.btn{
+  width: 100px; 
+  padding: 8px 0; 
+  background: #4979ff; 
+  border-radius: 4px; 
+  color: white; 
+  text-align: center; 
+  text-decoration: none;
+}
