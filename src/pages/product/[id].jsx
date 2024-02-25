@@ -51,15 +51,15 @@ export default function ProductDetail({students2}){
                 </Image>
             </div>
             <div className={styles.detail} > 
-                  <h5> รหัส : {students2['code']}</h5>  
-                  <h5> วันที่ปลูก : {students2['วันที่ปลูก']}</h5>
-                  <h5> วันที่ย้าย : {students2['วันที่ย้าย']}</h5>
-                  <h5> วันที่แหล่งที่มา : {students2['resoure']}</h5> 
-                  <h5> อาหาร : {students2['อาหาร']}</h5>
-                  <h5> ลักษณะ : {students2['ลักษณะ']}</h5> 
-                  <h5> ความกว้าง : {students2['ความกว้าง']}</h5>
-                  <h5> ความยาว : {students2['ความยาว']}</h5>
-                  <h5> หมายเหตุ : {students2['หมายเหตุ']}</h5>
+                  <h3> รหัส : {students2['code']}</h3>  
+                  <h3> วันที่ปลูก : {students2['วันที่ปลูก']}</h3>
+                  <h3> วันที่ย้าย : {students2['วันที่ย้าย']}</h3>
+                  <h3> วันที่แหล่งที่มา : {students2['resoure']}</h3> 
+                  <h3> อาหาร : {students2['อาหาร']}</h3>
+                  <h3> ลักษณะ : {students2['ลักษณะ']}</h3> 
+                  <h3> ความกว้าง : {students2['ความกว้าง']}</h3>
+                  <h3> ความยาว : {students2['ความยาว']}</h3>
+                  <h3> หมายเหตุ : {students2['หมายเหตุ']}</h3>
             </div> 
         </div>
         
