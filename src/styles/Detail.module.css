@@ -42,3 +42,14 @@ body {
     font-size: 12px; /* Decrease font size for details on smaller screens */
   }
 }
+
+/* Media query for iPads */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .names {
+    font-size: 20px; /* Adjust font size for headings on iPads */
+  }
+
+  .detail {
+    font-size: 16px; /* Adjust font size for details on iPads */
+  }
+}
