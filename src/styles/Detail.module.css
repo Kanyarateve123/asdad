@@ -1,31 +1,44 @@
+/* Thai font */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+/* General styles */
+body {
+  font-family: 'Sarabun', sans-serif; /* Use Sarabun font */
+  background-color: #f9f9f9; /* Set background color */
+  color: #333; /* Set text color */
+}
+
 .names {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px; /* Increase font size for headings */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 18px; /* Set font size for details */
+}
+
+.detail h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .names {
+    font-size: 20px; /* Decrease font size for headings on smaller screens */
   }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+
   .detail {
-    text-align: left;
-    margin-top: 20px;
+    text-align: center;
+    font-size: 16px; /* Decrease font size for details on smaller screens */
   }
-  
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .detail {
-      text-align: center;
-    }
-  
-    .detail h2 {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-  }
-  
+}
