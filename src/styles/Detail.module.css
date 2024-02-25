@@ -34,11 +34,11 @@ body {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .names {
-    font-size: 18px; /* Decrease font size for headings on smaller screens */
+    font-size: 16px; /* Decrease font size for headings on smaller screens */
   }
 
   .detail {
     text-align: center;
-    font-size: 14px; /* Decrease font size for details on smaller screens */
+    font-size: 12px; /* Decrease font size for details on smaller screens */
   }
 }
