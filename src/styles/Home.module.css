@@ -2,8 +2,9 @@
   color: white;  
   text-align: center; 
   background-color: blue;  
-  font-weight: 900; 
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Sarabun', sans-serif; /* Use Sarabun font */
+  background-color: #f9f9f9; /* Set background color */
+  color: #333; /* Set text color */
 
 }
 .container{ 
