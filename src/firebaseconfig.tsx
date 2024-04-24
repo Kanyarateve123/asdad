@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "flutterrmutl-37dda",
   storageBucket: "flutterrmutl-37dda.appspot.com",
   messagingSenderId: "840066852686",
-  appId: "1:840066852686:web:d1c100c03864f5e3fda01f"
+  appId: "1:840066852686:web:4088631be0988859fda01f"
 };
 
 // Initialize Firebase
