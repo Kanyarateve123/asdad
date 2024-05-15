@@ -38,7 +38,7 @@ export default function Home() {
   };
   return (
     <main>
-<div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', marginRight:"-210px" }}>
   {userData.map((student) => (
     <div key={student.id} style={{ width: '20%', marginTop:"10px" }}>
      
