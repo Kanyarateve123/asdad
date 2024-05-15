@@ -4,7 +4,7 @@ import { getDocs, collection } from 'firebase/firestore';
 import { db } from '@/firebaseconfig';
 import styles from '@/styles/Product.module.css';
 import Link from 'next/link';
-import QRCode from 'qrcode.react'; 
+import QRCode from 'qrcode.react';
 import { Button } from 'react-bootstrap';
 
 interface Student {
@@ -38,24 +38,22 @@ export default function Home() {
   };
   return (
     <main>
-<div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', marginRight:"-120px" }}>
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
   {userData.map((student) => (
     <div key={student.id} style={{ width: '20%', marginTop:"10px" }}>
-      <Link href={`/product/${student.id}`}>
-        <Image src={student.image} width={200} height={200} alt={student.ชื่อ} />
-        
-      </Link>  
-      <p style={{ color: "black", textAlign:"center" , marginLeft:"-100px",marginTop:"10px" }}>{student.ชื่อ}</p> 
-   
-    
+     
+
+       <QRCode value={`https://asdad-kanyarateve123s-projects.vercel.app/product/${student.id}`} />
+       <p>{student.ชื่อ} ขวดที่ {student.code}</p> 
+
     </div>
 
-  ))} 
+  ))}
 </div> 
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-    <Link href={`/qrcode/`}>
-      <Button variant="outline-primary">printpage</Button>
-    </Link>
+<div style={{ display: 'flex', justifyContent: 'center', marginTop:"10px" }}>
+
+      <Button variant="outline-primary"  onClick={handlePrint}>printpage</Button>
+
   </div>
     </main>
   );
