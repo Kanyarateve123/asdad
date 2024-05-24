@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+//เอามาจาก firebase ใช้ connect database
 const firebaseConfig = {
   apiKey: "AIzaSyAgkCJSHGTrA4WrDOEwAj89lvzqtI6JG-o",
   authDomain: "flutterrmutl-37dda.firebaseapp.com",

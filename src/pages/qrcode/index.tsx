@@ -7,13 +7,15 @@ import Link from 'next/link';
 import QRCode from 'qrcode.react';
 import { Button } from 'react-bootstrap';
 
+// Define the interface to receive data
 interface Student {
   id: string;
   image: string;
   ชื่อ: string; // I'm assuming this is Thai for "name" 
-  code:string;
+  code: string;
 }
 
+// Fetch data from Firestore
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "students"));
   const data: Student[] = [];
@@ -26,35 +28,37 @@ async function fetchDataFromFirestore() {
 export default function Home() {
   const [userData, setUserData] = useState<Student[]>([]);
   
-  useEffect(() => {
+  useEffect(() => { 
+    // ดึงข้อมูล firebase มาใช้
     async function fetchData() {
       const data = await fetchDataFromFirestore();
       setUserData(data);
     }
     fetchData();
-  }, []);
+  }, []); 
+
+  // Print command
   const handlePrint = () => {
     window.print();
-  };
+  }; 
+
+  // Display data and print button
+ //ด฿งข้อมูลมาใช้ กด ปุ้มก็ปริ้น ทั้งหน้า
   return (
-    <main>
-<div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', marginRight:"-210px" }}>
-  {userData.map((student) => (
-    <div key={student.id} style={{ width: '20%', marginTop:"10px" }}>
-     
-
-       <QRCode value={`https://asdad-kanyarateve123s-projects.vercel.app/product/${student.id}`} />
-       <p>{student.ชื่อ} ขวดที่ {student.code}</p> 
-
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <main>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginLeft:"100px" }}>
+          {userData.map((student) => (
+            <div key={student.id} style={{ width: '30%' }}>
+              <QRCode value={`https://asdad-kanyarateve123s-projects.vercel.app/product/${student.id}`} />
+              <p>{student.ชื่อ} ขวดที่ {student.code}</p> 
+            </div>
+          ))}
+        </div> 
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop:"10px" }}>
+          <Button variant="outline-primary"  onClick={handlePrint}>Print Page</Button>
+        </div>
+      </main>
     </div>
-
-  ))}
-</div> 
-<div style={{ display: 'flex', justifyContent: 'center', marginTop:"10px" }}>
-
-      <Button variant="outline-primary"  onClick={handlePrint}>printpage</Button>
-
-  </div>
-    </main>
   );
 }

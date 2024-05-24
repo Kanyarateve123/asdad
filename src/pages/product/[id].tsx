@@ -8,11 +8,11 @@ import { useRouter } from 'next/router';
 import QRCode from 'qrcode.react';
 import { FC } from 'react'; 
 import { saveAs } from 'file-saver';
-
+//สร้าง interface มารับค่า
 interface PostProps {
   id: string | string[] | undefined;
 }
-
+//สร้าง interface มารับค่า
 interface StudentData {
     code: string | undefined;
     'ชื่อ': string | undefined;
@@ -27,15 +27,15 @@ interface StudentData {
     title: string | undefined;
     image: string | undefined;
 }
-
+//สร้าง interface มารับค่า
 interface ProductDetailProps {
     students2: StudentData; 
     id: string | string[] | undefined; 
     url: string|null;
 }
-
+//ตั้งค่า collection firebase คือ reference
 const reference = collection(db, "students");
-
+//สดึงข้อมูล database แล้วส่งออก ตามค่า id
 export const getStaticPaths = async () => {
     const umuntu = await getDocs(reference);
 
@@ -64,35 +64,8 @@ export const getStaticProps = async (context: { params: { id: string; }; }) => {
         }
     };
 };
-const handlePrint = () => {
-    window.print();
-};
+//ดึงข้อมูลมาใช้ตาม id
 const ProductDetail: React.FC<ProductDetailProps> = ({ students2 ,id}) => {  
-    const qrCodeRef = useRef<any>(null);
-    const url = `https://asdad-kanyarateve123s-projects.vercel.app/product/${id}`; // Construct the URL
- 
-    const exportQRCode = () => {
-        if (qrCodeRef.current) {
-            qrCodeRef.current.toCanvas({ type: 'image/png' }).then((canvas: HTMLCanvasElement) => {
-                canvas.toBlob((blob: Blob | null) => {
-                    if (blob) {
-                        saveAs(blob, 'qr-code.png');
-                    }
-                });
-            });
-        }
-    };
-
-
-
-const handlePrint = () => {
-    // Get the content to be printed (product details and QR code)
-    const printContent = document.getElementById('qr-code-img');
-  
-    // Open the print dialog
-    window.print();
-  };
-  
     return ( 
         <>   
         

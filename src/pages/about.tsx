@@ -8,7 +8,7 @@ export default function About() {
   return (
     <div>  
       <Head>
-    <title> เกี่ยวกับเรา| ณัฐพงศ์ </title> 
+    <title> </title> 
     <meta name='keywords' content='kongruksiam,ร้านค้า,ขายสินค้า'/>
    </Head>
  
