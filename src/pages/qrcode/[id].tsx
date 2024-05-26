@@ -67,7 +67,7 @@ export const getStaticProps = async (context: { params: { id: string; }; }) => {
 
 const QrcodeDetail: React.FC<ProductDetailProps> = ({ students2, id }) => {
   const qrCodeRef = useRef<any>(null);
-  const url = `orchilds-bprnwau8l-kanyarateve123s-projects.vercel.app/product/${id}`; // Construct the URL
+  const url = `orchilds.vercel.app/product/${id}`; // Construct the URL
 
   const exportQRCode = () => {
     if (qrCodeRef.current) {
