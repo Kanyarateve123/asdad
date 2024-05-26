@@ -50,7 +50,7 @@ export default function Home() {
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginLeft:"100px" }}>
           {userData.map((student) => (
             <div key={student.id} style={{ width: '30%' }}>
-              <QRCode value={`https://asdad-kanyarateve123s-projects.vercel.app/product/${student.id}`} />
+              <QRCode value={`orchilds-bprnwau8l-kanyarateve123s-projects.vercel.app/product/${student.id}`} />
               <p>{student.ชื่อ} ขวดที่ {student.code}</p> 
             </div>
           ))}
