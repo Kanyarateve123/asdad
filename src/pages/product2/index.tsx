@@ -1,9 +1,9 @@
 import React from 'react'
 
-type Props = {}
-
-const index = (props: Props) => {
+export default function Index() {
   return (
-    <div>index</div>
+    <div>
+      <h1>Swadee</h1>
+    </div>
   )
 }
