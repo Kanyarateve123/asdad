@@ -7,6 +7,7 @@ import styles from "@/styles/Detail.module.css";
 import { useRouter } from 'next/router';
 import QRCode from 'qrcode.react';
 import { saveAs } from 'file-saver';
+import { Button } from 'react-bootstrap';
 
 interface PostProps {
   id: string | string[] | undefined;
@@ -105,6 +106,7 @@ const QrcodeDetail: React.FC<ProductDetailProps> = ({ students2, id }) => {
           <p> ชื่อ : {students2['ชื่อ']}</p>
           {/* Print Button */} 
           <button onClick={handlePrint} style={{marginTop:"40px"}}>Print QR Code</button>
+       
         </div>
 
       </div>

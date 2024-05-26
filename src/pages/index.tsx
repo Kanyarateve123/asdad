@@ -46,22 +46,29 @@ export default function Home() {
    
   {userData.map((student) => (
     <div key={student.id} style={{ width: '20%', marginTop:"10px" }}>
-      <Link href={`/product/${student.id}`}>
+      <Link href={`/product3/${student.ชื่อ}`}>
         <Image src={student.image} width={200} height={200} alt={student.ชื่อ} />
         
       </Link>  
-      <p style={{ color: "black", textAlign:"center" , marginLeft:"-100px",marginTop:"10px" }}>{student.ชื่อ}</p> 
-   
+      <p style={{ color: "black", textAlign:"center" ,marginLeft:"-125px", marginTop:"10px" }}>{student.ชื่อ}</p> 
+      <div>
+   <div style={{marginLeft:"50px"}}>
+   <Link href={`/qrcode/${student.id}`}>
+      <Button variant="outline-primary">qrcodebyid</Button>
+    </Link>
+   </div>
+  </div> 
     
     </div>
 
   ))} 
 </div> 
-<div style={{ display: 'flex', justifyContent: 'center' }}>
+<div style={{ display: 'flex', justifyContent: 'center', marginTop:"40px" }}>
     <Link href={`/qrcode/`}>
-      <Button variant="outline-primary">printpage</Button>
+      <Button variant="outline-primary">qrcodeall</Button>
     </Link>
-  </div>
+  </div> 
+ 
     </main>
   );
 }
