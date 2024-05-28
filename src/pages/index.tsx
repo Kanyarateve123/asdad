@@ -39,13 +39,14 @@ export default function Home() {
   const handlePrint = () => {
     window.print();
   }; 
-//ดึงค่าจาก firebaseมาใช้  เมื่อกด รูปภาพหรือชื่อ ให้ไปหน้า /product/ +ด้วยไอดีของ ข้อมูล กดปุ้ม printpage ไปยังหน้า /qrcode
+//ดึงค่าจาก firebaseมาใช้  เมื่อกด รูปภาพหรือชื่อ ให้ไปหน้า /product/[ชื่อ] จะเป็ชื่อของพันธ์ กดปุ้ม printpage ไปยังหน้า /qrcode
   return (
     <main>
 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', marginRight:"-120px" }}> 
    
   {userData.map((student) => (
-    <div key={student.id} style={{ width: '20%', marginTop:"10px" }}>
+    <div key={student.id} style={{ width: '20%', marginTop:"10px" }}> 
+  
       <Link href={`/product3/${student.ชื่อ}`}>
         <Image src={student.image} width={200} height={200} alt={student.ชื่อ} />
         

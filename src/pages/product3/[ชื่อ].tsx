@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import React from 'react';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { db } from '@/firebaseconfig';
 import { Button } from 'react-bootstrap';
 import Head from 'next/head';
@@ -20,6 +20,7 @@ interface StudentData {
   ความกว้าง: string;
   ความยาว: string;
   หมายเหตุ: string;
+  วันที่อัพเดท: string;
   title: string;
   image: string;
   id: string;
@@ -29,12 +30,9 @@ interface StudentPageProps {
   students: StudentData[];
 }
 
-const StudentPage: React.FC<StudentPageProps> = ({ students }) => {
+const StudentPage: React.FC<StudentPageProps> = ({ students: initialStudents }) => {
   const router = useRouter();
-
-  if (students.length === 0) {
-    return <p>No data found</p>;
-  }
+  const [students, setStudents] = React.useState<StudentData[]>(initialStudents);
 
   return (
     <main>
@@ -46,11 +44,9 @@ const StudentPage: React.FC<StudentPageProps> = ({ students }) => {
       </div>
       <div className={styles.container}>
         {students.map((student) => (
-          <div key={student.id} className={styles.detail} style={{marginBottom:"20px"}}>
-            <Link href={`/product/${student.id}`} >
-            
-                <Image src={student.image} width={300} height={300} alt={student.ชื่อ} style={{marginBottom:"20px"}}/>
-              
+          <div key={student.id} className={styles.detail} style={{ marginBottom: "20px" }}>
+            <Link href={`/product/${student.id}`}>
+              <Image src={student.image} width={300} height={300} alt={student.ชื่อ} style={{ marginBottom: "20px" }} />
             </Link>
             <h5>ชื่อ: {student.ชื่อ}</h5>
             <h5>รหัส: {student.code}</h5>
@@ -61,8 +57,9 @@ const StudentPage: React.FC<StudentPageProps> = ({ students }) => {
             <h5>ลักษณะ: {student.ลักษณะ}</h5>
             <h5>ความกว้าง: {student.ความกว้าง}</h5>
             <h5>ความยาว: {student.ความยาว}</h5>
-            <h5 style={{marginBottom:"30px"}}>หมายเหตุ: {student.หมายเหตุ}</h5>
-            <Button  variant="outline-primary" onClick={() => router.push(`/qrcode/${student.id}`) } style={{marginLeft:"50px",  width:"200px"}} >
+            <h5>วันที่อัพเดท: {student.วันที่อัพเดท}</h5>
+            <h5 style={{ marginBottom: "30px" }}>หมายเหตุ: {student.หมายเหตุ}</h5>
+            <Button variant="outline-primary" onClick={() => router.push(`/qrcode/${student.id}`)} style={{ marginLeft: "50px", width: "200px" }} >
               Go to QR Code
             </Button>
           </div>
@@ -74,12 +71,18 @@ const StudentPage: React.FC<StudentPageProps> = ({ students }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { ชื่อ } = context.params!;
-  const studentsQuery = query(collection(db, 'students'), where('ชื่อ', '==', ชื่อ as string));
+  const studentsQuery = query(
+    collection(db, 'students'),
+    where('ชื่อ', '==', ชื่อ as string),
+    orderBy('วันที่อัพเดท','desc')
+  );
   const querySnapshot = await getDocs(studentsQuery);
 
   const students: StudentData[] = [];
   querySnapshot.forEach((doc) => {
-    students.push({ ...doc.data(), id: doc.id } as StudentData);
+    const data = doc.data() as StudentData;
+    data.id = doc.id; // Ensure we capture the document ID
+    students.push(data);
   });
 
   return {

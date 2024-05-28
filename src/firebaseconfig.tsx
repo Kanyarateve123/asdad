@@ -1,18 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 //เอามาจาก firebase ใช้ connect database
+
 const firebaseConfig = {
   apiKey: "AIzaSyAgkCJSHGTrA4WrDOEwAj89lvzqtI6JG-o",
   authDomain: "flutterrmutl-37dda.firebaseapp.com",
   projectId: "flutterrmutl-37dda",
   storageBucket: "flutterrmutl-37dda.appspot.com",
   messagingSenderId: "840066852686",
-  appId: "1:840066852686:web:4088631be0988859fda01f"
+  appId: "1:840066852686:web:ba77a501055a2136fda01f"
 };
-
 // Initialize Firebase
 
-const app = initializeApp(firebaseConfig, "myAppName");
+const app = initializeApp(firebaseConfig, "myAppNames");
 
 // Get Firestore instance
 const db = getFirestore(app);

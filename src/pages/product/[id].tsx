@@ -25,7 +25,8 @@ interface StudentData {
     'ความยาว': string | undefined;
     'หมายเหตุ': string | undefined;
     title: string | undefined;
-    image: string | undefined;
+    image: string | undefined; 
+    'วันที่อัพเดท':string | undefined; 
 }
 //สร้าง interface มารับค่า
 interface ProductDetailProps {
@@ -95,7 +96,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ students2 ,id}) => {
                     <h5> ความกว้าง : {students2['ความกว้าง']}</h5>
                     <h5> ความยาว : {students2['ความยาว']}</h5>
                     <h5> หมายเหตุ : {students2['หมายเหตุ']}</h5> 
-
+                    <h5> วันที่อัพเดท : {students2['วันที่อัพเดท']}</h5> 
       
                     
            
